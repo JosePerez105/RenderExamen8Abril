@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import '../env.js'
-import router from "../routes/Horarios.routes.js";
+import router from "../routes/compras.routes.js";
 
 const app = express()
 const port = 3000

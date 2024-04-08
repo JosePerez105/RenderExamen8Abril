@@ -1,47 +1,47 @@
 import express from "express";
 const router = express.Router()
 export default router
-import HorariosSchema from "../model/Horarios.js";
+import comprasSchema from "../model/compras.js";
 
-//Create Horarios
-router.post('/Horarios', (req, res) => {
-    const Horarios = HorariosSchema(req.body)
-    Horarios.save()
+//Create compras
+router.post('/compras', (req, res) => {
+    const compras = comprasSchema(req.body)
+    compras.save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-//Get Horarios
-router.get('/Horarios', (req, res) => {
-    HorariosSchema
+//Get compras
+router.get('/compras', (req, res) => {
+    comprasSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-//Get a Horarios
-router.get('/Horarios/:id', (req, res) => {
+//Get a compras
+router.get('/compras/:id', (req, res) => {
     const { id } = req.params
-    HorariosSchema
+    comprasSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
 //Update one
-router.put('/Horarios/:id', (req, res) => {
+router.put('/compras/:id', (req, res) => {
     const { id } = req.params
-    const { dias, Hora_inicial, Hora_final } = req.body
-    HorariosSchema
-        .updateOne({ _id: id }, { $set: { dias, Hora_inicial, Hora_final } })
+    const { id_compra, fecha_compra, total_compra } = req.body
+    comprasSchema
+        .updateOne({ _id: id }, { $set: { id_compra, fecha_compra, total_compra } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
 //Delete one
-router.delete('/Horarios/:id', (req, res) => {
+router.delete('/compras/:id', (req, res) => {
     const { id } = req.params
-    HorariosSchema
+    comprasSchema
         .deleteOne({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message }))

@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 //Connection
-mongoose.connect("mongodb+srv://Juanes:123@cluster0.aqibkku.mongodb.net/?retryWrites=true&w=majority&appName=Yamix_horarios")
+mongoose.connect("mongodb://jose2:123@ac-gvfxj5l-shard-00-00.vgme3cx.mongodb.net:27017,ac-gvfxj5l-shard-00-01.vgme3cx.mongodb.net:27017,ac-gvfxj5l-shard-00-02.vgme3cx.mongodb.net:27017/?ssl=true&replicaSet=atlas-zgh66s-shard-0&authSource=admin&retryWrites=true&w=majority&appName=api")
     .then(() => console.log("Connected to mongoDB Atlas"))
     .catch((error) => console.log(error))
 
